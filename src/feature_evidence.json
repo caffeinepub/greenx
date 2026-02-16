@@ -1,0 +1,94 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-greenx-wordmark-so-the-full-title-greenx-is-visible-in-all-places-it-is-used-login-header-authenticated-topbar-adminlayout-sidebar-header-including-on-the-topbar-where-the-background-is-primary-colored-and-green-currently-becomes-invisible",
+      "featureTitle": "Fix the GreenX wordmark so the full title (“GreenX”) is visible in all places it is used (Login header, authenticated TopBar, AdminLayout sidebar header), including on the TopBar where the background is primary-colored and “Green” currently becomes invisible.",
+      "files": [
+        "frontend/src/components/GreenXWordmark.tsx",
+        "frontend/src/components/TopBar.tsx",
+        "frontend/src/index.css",
+        "frontend/src/layouts/AdminLayout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-agriculture-technology-images-e-g-drones-smart-systems-sensors-across-the-app-interfaces-by-introducing-a-reusable-visual-banner-hero-illustration-component-and-rendering-it-on-each-main-role-interface-page-land-owner-field-manager-worker-expert-near-the-top-of-the-page-content-under-the-topbar-without-breaking-existing-layouts",
+      "featureTitle": "Add agriculture-technology images (e.g., drones, smart systems, sensors) across the app interfaces by introducing a reusable visual banner/hero illustration component and rendering it on each main role interface page (Land Owner, Field Manager, Worker, Expert) near the top of the page content under the TopBar without breaking existing layouts.",
+      "files": [
+        "frontend/src/components/AgriTechBanner.tsx",
+        "frontend/src/pages/expert/ExpertDashboard.tsx",
+        "frontend/src/pages/field-manager/FieldManagerDashboard.tsx",
+        "frontend/src/pages/land-owner/LandOwnerDashboard.tsx",
+        "frontend/src/pages/worker/WorkerDashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-role-specific-logos-and-display-them-in-the-corresponding-role-interfaces-show-the-owner-logo-in-the-land-owner-interface-the-worker-logo-in-the-worker-interface-and-the-expert-logo-in-the-expert-interface-place-the-role-logo-in-a-consistent-visible-location-e-g-in-the-topbar-next-to-the-greenx-wordmark-and-keep-existing-user-info-and-logout-behavior-unchanged",
+      "featureTitle": "Add role-specific logos and display them in the corresponding role interfaces: show the owner logo in the Land Owner interface, the worker logo in the Worker interface, and the expert logo in the Expert interface. Place the role logo in a consistent, visible location (e.g., in the TopBar next to the GreenX wordmark) and keep existing user info and logout behavior unchanged.",
+      "files": [
+        "frontend/src/components/RoleLogo.tsx",
+        "frontend/src/components/TopBar.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-newly-generated-images-to-the-project-as-static-assets-under-frontend-public-assets-generated-and-update-the-ui-to-reference-those-exact-filenames-directly-from-the-frontend",
+      "featureTitle": "Add the newly generated images to the project as static assets under frontend/public/assets/generated and update the UI to reference those exact filenames directly from the frontend.",
+      "files": [
+        "frontend/src/components/AgriTechBanner.tsx",
+        "frontend/src/components/RoleLogo.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

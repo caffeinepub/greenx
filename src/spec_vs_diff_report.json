@@ -1,0 +1,64 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T15:55:24.421Z",
+  "summary": "Implemented an AgriTechBanner component and rendered it on role dashboards, and added a RoleLogo in the TopBar. However, the GreenX wordmark visibility issue on the primary-colored TopBar is not fully fixed (\"Green\" still uses text-primary on a bg-primary), and the required generated image assets are not shown as added under frontend/public/assets/generated. Several unrelated admin/data/UI enhancements were also introduced that were not requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Fix the GreenX wordmark so the full title (“GreenX”) is visible in all places it is used (Login header, authenticated TopBar, AdminLayout sidebar header), including on the TopBar where the background is primary-colored and “Green” currently becomes invisible.",
+      "reason": "On the authenticated TopBar, the wordmark still renders “Green” with className=\"text-primary\" while the TopBar background is \"bg-primary\", so “Green” can remain invisible on that primary-colored background. The change only adjusts the “X” color via the new variant, not “Green”.",
+      "evidence": [
+        "frontend/src/components/GreenXWordmark.tsx",
+        "frontend/src/components/TopBar.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Add the newly generated images to the project as static assets under frontend/public/assets/generated and update the UI to reference those exact filenames directly from the frontend.",
+      "reason": "UI code references /assets/generated/*.png, but the diff summary does not show any new image files added under frontend/public/assets/generated (only TSX/CSS files were added/modified).",
+      "evidence": [
+        "frontend/src/components/AgriTechBanner.tsx",
+        "frontend/src/components/RoleLogo.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Significant updates/additions to admin pages (KPI color theme changes, Drone Inventory, Office/Cluster Stock, expanded land/farmers/diagnostics/weather/finance/exports/users UI changes).",
+      "reason": "The BuildRequest only asked for wordmark visibility fixes and adding imagery/logos; it explicitly stated no backend changes and did not request new admin feature content or page redesigns.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "description": "Expanded demo data models and demo inventory (workers, products, drone spray logs, additional inventory items) and added phone fields to demo auth accounts.",
+      "reason": "Not requested by any REQ; these are unrelated to title visibility, banner imagery, or role logos.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "description": "Added formatDuration helper function for displaying flight time.",
+      "reason": "Not requested by any REQ; unrelated to wordmark visibility and static imagery requirements.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/AgriTechBanner.tsx",
+    "frontend/src/components/GreenXWordmark.tsx",
+    "frontend/src/components/RoleLogo.tsx",
+    "frontend/src/components/TopBar.tsx",
+    "frontend/src/index.css",
+    "frontend/src/layouts/AdminLayout.tsx",
+    "frontend/src/pages/expert/ExpertDashboard.tsx",
+    "frontend/src/pages/field-manager/FieldManagerDashboard.tsx",
+    "frontend/src/pages/land-owner/LandOwnerDashboard.tsx",
+    "frontend/src/pages/worker/WorkerDashboard.tsx",
+    "project_state.json"
+  ]
+}

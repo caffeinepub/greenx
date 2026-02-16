@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "GreenX app: fix title rendering and add agriculture-technology imagery and role-specific logos across interfaces.",
+  "architectural_notes": [],
+  "known_issues": [
+    "GreenX title display issue: only 'X' appears instead of the full title."
+  ],
+  "isFixRequest": true,
+  "imageRequirements": "## Required Images\n- Wide agri-tech farm illustration featuring drones, sensors, and smart irrigation elements (agri-tech-banner.dim_1200x400.png)\n- Owner role logo mark, clean vector-style emblem (role-owner-logo.dim_256x256.png)\n- Worker role logo mark, clean vector-style emblem (role-worker-logo.dim_256x256.png)\n- Expert role logo mark, clean vector-style emblem (role-expert-logo.dim_256x256.png)",
+  "existing_features": [
+    {
+      "id": "feature-fix-the-greenx-wordmark-so-the-full-title-greenx-is-visible-in-all-places-it-is-used-login-header-authenticated-topbar-adminlayout-sidebar-header-including-on-the-topbar-where-the-background-is-primary-colored-and-green-currently-becomes-invisible",
+      "title": "Fix the GreenX wordmark so the full title (“GreenX”) is visible in all places it is used (Login header, authenticated TopBar, AdminLayout sidebar header), including on the TopBar where the background is primary-colored and “Green” currently becomes invisible.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-agriculture-technology-images-e-g-drones-smart-systems-sensors-across-the-app-interfaces-by-introducing-a-reusable-visual-banner-hero-illustration-component-and-rendering-it-on-each-main-role-interface-page-land-owner-field-manager-worker-expert-near-the-top-of-the-page-content-under-the-topbar-without-breaking-existing-layouts",
+      "title": "Add agriculture-technology images (e.g., drones, smart systems, sensors) across the app interfaces by introducing a reusable visual banner/hero illustration component and rendering it on each main role interface page (Land Owner, Field Manager, Worker, Expert) near the top of the page content under the TopBar without breaking existing layouts.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-role-specific-logos-and-display-them-in-the-corresponding-role-interfaces-show-the-owner-logo-in-the-land-owner-interface-the-worker-logo-in-the-worker-interface-and-the-expert-logo-in-the-expert-interface-place-the-role-logo-in-a-consistent-visible-location-e-g-in-the-topbar-next-to-the-greenx-wordmark-and-keep-existing-user-info-and-logout-behavior-unchanged",
+      "title": "Add role-specific logos and display them in the corresponding role interfaces: show the owner logo in the Land Owner interface, the worker logo in the Worker interface, and the expert logo in the Expert interface. Place the role logo in a consistent, visible location (e.g., in the TopBar next to the GreenX wordmark) and keep existing user info and logout behavior unchanged.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-newly-generated-images-to-the-project-as-static-assets-under-frontend-public-assets-generated-and-update-the-ui-to-reference-those-exact-filenames-directly-from-the-frontend",
+      "title": "Add the newly generated images to the project as static assets under frontend/public/assets/generated and update the UI to reference those exact filenames directly from the frontend.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Fix GreenX title rendering so the full title appears (currently only 'X' is showing).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add agriculture-technology images across interfaces (e.g., drones, smart systems, sensors) and add role-specific logos: owner logo in owner interface, worker logo in worker interface, expert logo in expert interface.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "GreenX",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

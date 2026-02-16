@@ -1,0 +1,136 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "GreenX wordmark visibility fixes + agri-tech banner imagery + role logos",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Ensure the GreenX wordmark renders fully and remains readable on Login, authenticated TopBar (primary background), and AdminLayout header in both light/dark modes while keeping it as styled text.",
+      "acceptanceCriteria": [
+        "On the authenticated TopBar, both “Green” and “X” are clearly visible in light mode and dark mode.",
+        "On the Login page header and AdminLayout sidebar header, the wordmark still renders correctly and remains readable in light mode and dark mode.",
+        "The wordmark still renders as text (not an image), with “X” styled distinctly from “Green” as it is now."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GreenXWordmark.tsx",
+          "operation": "modify",
+          "description": "Update the wordmark styling so the “X” uses theme-aware text color (not hardcoded black) and add a supported variant for rendering on primary-colored backgrounds (e.g., TopBar) so “Green” does not disappear; keep the wordmark as text with distinct styling between “Green” and “X”."
+        },
+        {
+          "path": "frontend/src/components/TopBar.tsx",
+          "operation": "modify",
+          "description": "Use the updated GreenXWordmark variant intended for primary-background contexts so “GreenX” stays readable on the primary-colored TopBar in both light and dark mode."
+        },
+        {
+          "path": "frontend/src/layouts/AdminLayout.tsx",
+          "operation": "modify",
+          "description": "Ensure the AdminLayout sidebar header uses the updated GreenXWordmark behavior (no invisible letters, theme-aware colors) without changing existing admin protection, user info, or logout behavior."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Adjust/extend the existing wordmark shadow/readability styles if needed to preserve contrast in both light and dark modes, especially for the “X” on varying backgrounds."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Introduce a reusable agri-tech banner component that displays a static illustration and render it near the top of each main role dashboard (Land Owner, Field Manager, Worker, Expert) under the TopBar without breaking layouts.",
+      "acceptanceCriteria": [
+        "Land Owner, Field Manager, Worker, and Expert dashboards each display an agri-tech themed illustration/banner.",
+        "The images are served as static frontend assets (not fetched from the backend).",
+        "The banner scales responsively for the existing mobile-first layouts and does not overflow containers."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AgriTechBanner.tsx",
+          "operation": "create",
+          "description": "Create a reusable responsive visual banner/hero illustration component that renders the static image at frontend/public/assets/generated/agri-tech-banner.dim_1200x400.png and fits within existing container widths without overflow."
+        },
+        {
+          "path": "frontend/src/pages/land-owner/LandOwnerDashboard.tsx",
+          "operation": "modify",
+          "description": "Render the new AgriTechBanner component near the top of the Land Owner dashboard content (directly under TopBar) while preserving existing spacing and layout."
+        },
+        {
+          "path": "frontend/src/pages/field-manager/FieldManagerDashboard.tsx",
+          "operation": "modify",
+          "description": "Render the new AgriTechBanner component near the top of the Field Manager dashboard content (directly under TopBar) without breaking existing mobile-first layout."
+        },
+        {
+          "path": "frontend/src/pages/worker/WorkerDashboard.tsx",
+          "operation": "modify",
+          "description": "Render the new AgriTechBanner component near the top of the Worker dashboard content (directly under TopBar) while keeping task interactions unchanged."
+        },
+        {
+          "path": "frontend/src/pages/expert/ExpertDashboard.tsx",
+          "operation": "modify",
+          "description": "Render the new AgriTechBanner component near the top of the Expert dashboard content (directly under TopBar) while keeping existing panels and actions unchanged."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add role-specific logos and show the correct logo for Land Owner, Worker, and Expert in a consistent TopBar location next to the GreenX wordmark without affecting user info or logout.",
+      "acceptanceCriteria": [
+        "When logged in as Land Owner, the owner logo is visible on Land Owner pages.",
+        "When logged in as Worker, the worker logo is visible on Worker pages.",
+        "When logged in as Expert, the expert logo is visible on Expert pages.",
+        "Role logos render correctly in light mode and dark mode and do not overlap the title, user name, role label, or logout button."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RoleLogo.tsx",
+          "operation": "create",
+          "description": "Create a small, reusable role-logo component that selects among static assets based on the current authenticated role (Land Owner/Worker/Expert) using frontend/public/assets/generated/role-owner-logo.dim_256x256.png, frontend/public/assets/generated/role-worker-logo.dim_256x256.png, and frontend/public/assets/generated/role-expert-logo.dim_256x256.png."
+        },
+        {
+          "path": "frontend/src/components/TopBar.tsx",
+          "operation": "modify",
+          "description": "Add the role logo next to the GreenX wordmark (consistent placement) by using the new RoleLogo component and the session role from AuthProvider; keep the existing user name/role label and logout button behavior unchanged, and ensure the layout does not overlap in light/dark modes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add the newly generated images under frontend/public/assets/generated and ensure the UI references those exact filenames as static assets.",
+      "acceptanceCriteria": [
+        "All newly generated images exist under frontend/public/assets/generated.",
+        "All UI references to the new imagery use paths under /assets/generated/ (no backend image serving)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/agri-tech-banner.dim_1200x400.png",
+          "operation": "create",
+          "description": "Add the generated static banner image asset with the exact required filename for reuse in the AgriTechBanner component."
+        },
+        {
+          "path": "frontend/public/assets/generated/role-owner-logo.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated static Owner role logo asset with the exact required filename for use in the TopBar role logo rendering."
+        },
+        {
+          "path": "frontend/public/assets/generated/role-worker-logo.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated static Worker role logo asset with the exact required filename for use in the TopBar role logo rendering."
+        },
+        {
+          "path": "frontend/public/assets/generated/role-expert-logo.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated static Expert role logo asset with the exact required filename for use in the TopBar role logo rendering."
+        },
+        {
+          "path": "frontend/src/components/AgriTechBanner.tsx",
+          "operation": "modify",
+          "description": "Ensure the banner component references the exact static asset path/filename frontend/public/assets/generated/agri-tech-banner.dim_1200x400.png and does not rely on backend-fetched images."
+        },
+        {
+          "path": "frontend/src/components/RoleLogo.tsx",
+          "operation": "modify",
+          "description": "Ensure the role logo component references the exact static asset paths/filenames frontend/public/assets/generated/role-owner-logo.dim_256x256.png, frontend/public/assets/generated/role-worker-logo.dim_256x256.png, and frontend/public/assets/generated/role-expert-logo.dim_256x256.png and does not rely on backend image serving."
+        }
+      ]
+    }
+  ]
+}

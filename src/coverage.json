@@ -1,0 +1,109 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T15:55:24.424Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Fix the GreenX wordmark so the full title (“GreenX”) is visible in all places it is used (Login header, authenticated TopBar, AdminLayout sidebar header), including on the TopBar where the background is primary-colored and “Green” currently becomes invisible.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/GreenXWordmark.tsx",
+          "frontend/src/components/TopBar.tsx",
+          "frontend/src/layouts/AdminLayout.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/GreenXWordmark.tsx",
+          "frontend/src/components/TopBar.tsx",
+          "frontend/src/layouts/AdminLayout.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add agriculture-technology images (e.g., drones, smart systems, sensors) across the app interfaces by introducing a reusable visual banner/hero illustration component and rendering it on each main role interface page (Land Owner, Field Manager, Worker, Expert) near the top of the page content under the TopBar without breaking existing layouts.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/AgriTechBanner.tsx",
+          "frontend/src/pages/land-owner/LandOwnerDashboard.tsx",
+          "frontend/src/pages/field-manager/FieldManagerDashboard.tsx",
+          "frontend/src/pages/worker/WorkerDashboard.tsx",
+          "frontend/src/pages/expert/ExpertDashboard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AgriTechBanner.tsx",
+          "frontend/src/pages/land-owner/LandOwnerDashboard.tsx",
+          "frontend/src/pages/field-manager/FieldManagerDashboard.tsx",
+          "frontend/src/pages/worker/WorkerDashboard.tsx",
+          "frontend/src/pages/expert/ExpertDashboard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Add role-specific logos and display them in the corresponding role interfaces: show the owner logo in the Land Owner interface, the worker logo in the Worker interface, and the expert logo in the Expert interface. Place the role logo in a consistent, visible location (e.g., in the TopBar next to the GreenX wordmark) and keep existing user info and logout behavior unchanged.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/RoleLogo.tsx",
+          "frontend/src/components/TopBar.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/RoleLogo.tsx",
+          "frontend/src/components/TopBar.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Add the newly generated images to the project as static assets under frontend/public/assets/generated and update the UI to reference those exact filenames directly from the frontend.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/agri-tech-banner.dim_1200x400.png",
+          "frontend/public/assets/generated/role-owner-logo.dim_256x256.png",
+          "frontend/public/assets/generated/role-worker-logo.dim_256x256.png",
+          "frontend/public/assets/generated/role-expert-logo.dim_256x256.png",
+          "frontend/src/components/AgriTechBanner.tsx",
+          "frontend/src/components/RoleLogo.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/agri-tech-banner.dim_1200x400.png",
+          "frontend/public/assets/generated/role-owner-logo.dim_256x256.png",
+          "frontend/public/assets/generated/role-worker-logo.dim_256x256.png",
+          "frontend/public/assets/generated/role-expert-logo.dim_256x256.png",
+          "frontend/src/components/AgriTechBanner.tsx",
+          "frontend/src/components/RoleLogo.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/agri-tech-banner.dim_1200x400.png",
+    "frontend/public/assets/generated/role-expert-logo.dim_256x256.png",
+    "frontend/public/assets/generated/role-owner-logo.dim_256x256.png",
+    "frontend/public/assets/generated/role-worker-logo.dim_256x256.png",
+    "frontend/src/components/AgriTechBanner.tsx",
+    "frontend/src/components/GreenXWordmark.tsx",
+    "frontend/src/components/RoleLogo.tsx",
+    "frontend/src/components/TopBar.tsx",
+    "frontend/src/index.css",
+    "frontend/src/layouts/AdminLayout.tsx",
+    "frontend/src/pages/expert/ExpertDashboard.tsx",
+    "frontend/src/pages/field-manager/FieldManagerDashboard.tsx",
+    "frontend/src/pages/land-owner/LandOwnerDashboard.tsx",
+    "frontend/src/pages/worker/WorkerDashboard.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
